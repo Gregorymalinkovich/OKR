@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание 5-Малинкович</title>
+</head>
+<body>
+  <h3>Евгений Сергеевич нажимайте клавиши и тестите</h3>
+  <div id="output"></div>
+
+  <script>
+    const uniqueSymbols = new Set();
+    const duplicateSymbols = new Set();
+    const resultField = document.getElementById('output');
+
+document.addEventListener('keydown', function(event) {
+  const pressedKey = event.key;
+  if (pressedKey.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey) {
+    if (uniqueSymbols.has(pressedKey)) {
+      duplicateSymbols.add(pressedKey);
+      resultField.innerText = Array.from(duplicateSymbols).join('');
+    } else {
+      uniqueSymbols.add(pressedKey);
+    }
+  }
+});
+  </script>
+</body>
+</html>
